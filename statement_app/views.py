@@ -52,9 +52,7 @@ class StatementDetail(LoginRequiredMixin, DetailView):
 
 
 def create_statement(request):
-    print(request)
     if request.method == 'POST':
-        print(request)
         models.Statements.objects.create(user_added_statement=request.user,
                                          client_inn=request.POST.get('inn'),
                                          client_company_name=request.POST.get('company_name'),
