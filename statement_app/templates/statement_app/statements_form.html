@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>GAGAIT</title>
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .user_added, .client_inn, .client_company_name, .client_device_number, .client_modul_number, .client_number,
+        .client_address, .client_single_window_statement, .client_statement, .description {
+            margin: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="form-container">
+            <a href="{% url 'main_page' %}"><button>Назад</button></a>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="user_added">
+                    <input name="user_added" type="text" value="{{ request.user }}" disabled>
+                </div>
+                <div class="client_inn">
+                    <input name="inn" type="number" placeholder="Введите ИНН|ПНФЛ">
+                </div>
+                <div class="client_company_name">
+                    <input name="company_name" type="text" placeholder="Введите Юр. название">
+                </div>
+                <div class="client_device_number">
+                    <input name="device_number" type="text" placeholder="Введите номер аппарата">
+                </div>
+                <div class="client_modul_number">
+                    <input name="modul_number" type="text" placeholder="Введите номер модуля">
+                </div>
+                <div class="client_number">
+                    <input name="client_number" type="tel" placeholder="Введите номер клиента">
+                </div>
+                <div class="client_address">
+                    <input name="client_address" type="text" placeholder="Введите адрес клиента">
+                </div>
+                <div class="client_single_window_statement">
+                    <input name="client_single_window_statement" type="file" placeholder="Введите документ Ед. окна">
+                </div>
+                <div class="client_statement">
+                     <input name="client_statement" type="file" placeholder="Введите заявления клиента">
+                </div>
+                <div class="description">
+                    <p>Комментарии:</p>
+                    <textarea name="description" rows="4" cols="50"></textarea>
+                </div>
+                <input class="btn-submit" type="submit" value="Сохранить">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

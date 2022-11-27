@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GAGAIT</title>
+</head>
+<body>
+ <div class="main-container">
+        <div class="form-container">
+            <a href="{% url 'main_page' %}"><button class="btn btn-primary">Назад</button></a>
+            <form method="post">
+                {% csrf_token %}
+                <p>Вы точно хотите удалить? "{{ exact_statement }}"</p>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
